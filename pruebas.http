@@ -1,0 +1,36 @@
+### 1. Crear un nuevo Usuario (Petición POST)
+POST http://localhost:8081/api/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "José Manuel",
+  "email": "jose.manuel@kedo.dev",
+  "password": "secret_1234!"
+}
+
+### 2. Obtener todos los Usuarios (Petición GET)
+GET http://localhost:8081/api/usuarios
+Accept: application/json
+
+### 3. Crear un Evento asociado al Usuario 1
+POST http://localhost:8081/api/eventos
+Content-Type: application/json
+
+{
+  "titulo": "Exposición de Fotografía Local",
+  "descripcion": "Ven a ver la historia del barrio en imágenes.",
+  "latitud": 37.3891,
+  "longitud": -5.9845,
+  "fechaEvento": "2026-06-15T18:00:00",
+  "creador": {
+    "id": 1
+  }
+}
+
+### 4. Obtener todos los eventos para el mapa
+GET http://localhost:8081/api/eventos
+Accept: application/json
+
+### 5. Simular clic en el botón "Asistir"
+# El usuario 1 asiste al Evento 1
+POST http://localhost:8081/api/eventos/1/asistir/1
