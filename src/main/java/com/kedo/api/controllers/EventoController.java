@@ -29,6 +29,12 @@ public class EventoController {
         return eventoService.obtenerTodos();
     }
 
+    // Endpoint para borrar un evento
+    @DeleteMapping("/{id}")
+    public void eliminarEvento(@PathVariable Long id) {
+        eventoService.eliminarEvento(id);
+    }
+
     // NUEVO ENDPOINT: Simula cuando el usuario le da al botón "Asistir"
     // URL de ejemplo: http://localhost:8081/api/eventos/1/asistir/1
     @PostMapping("/{eventoId}/asistir/{usuarioId}")
